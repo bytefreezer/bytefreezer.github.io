@@ -1,0 +1,83 @@
+site_name: ByteFreezer
+site_url: https://bytefreezer.com
+site_description: Open source security DVR. Record everything, store in your S3/MinIO bucket, query with AI agents. BYOB + BYOA. Flexible retention 7-365+ days.
+site_author: ByteFreezer Team
+
+repo_name: bytefreezer/bytefreezer
+repo_url: https://github.com/n0needt0/bytefreezer
+edit_uri: ""
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/shield-lock
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/n0needt0/bytefreezer
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/bytefreezer
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2024 ByteFreezer. Open source under MIT License.
+
+nav:
+  - Home: index.md
+  - Documentation:
+    - Getting Started: getting-started.md
+    - Configuration: configuration.md
+    - Architecture: architecture.md

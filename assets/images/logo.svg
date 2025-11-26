@@ -1,0 +1,52 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="60" fill="url(#gradient1)"/>
+  
+  <!-- Snowflake/Data Crystal Pattern -->
+  <g transform="translate(60, 60)">
+    <!-- Main Cross -->
+    <line x1="0" y1="-25" x2="0" y2="25" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Diagonal Lines -->
+    <line x1="-18" y1="-18" x2="18" y2="18" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="18" y1="-18" x2="-18" y2="18" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Data Nodes (Hexagons) -->
+    <g fill="white">
+      <!-- Center node -->
+      <polygon points="0,-6 5.2,-3 5.2,3 0,6 -5.2,3 -5.2,-3" fill="white"/>
+      
+      <!-- Top nodes -->
+      <polygon points="0,-22 3.5,-20 3.5,-16 0,-14 -3.5,-16 -3.5,-20" fill="rgba(255,255,255,0.9)"/>
+      <polygon points="0,22 3.5,20 3.5,16 0,14 -3.5,16 -3.5,20" fill="rgba(255,255,255,0.9)"/>
+      
+      <!-- Side nodes -->
+      <polygon points="-22,0 -18.5,-2 -18.5,2 -22,4 -25.5,2 -25.5,-2" fill="rgba(255,255,255,0.8)"/>
+      <polygon points="22,0 25.5,-2 25.5,2 22,4 18.5,2 18.5,-2" fill="rgba(255,255,255,0.8)"/>
+      
+      <!-- Diagonal nodes -->
+      <polygon points="-15,-15 -12.5,-17 -10,-15 -12.5,-13 -15,-13 -17.5,-15" fill="rgba(255,255,255,0.7)"/>
+      <polygon points="15,15 17.5,13 17.5,17 15,17 12.5,15 12.5,13" fill="rgba(255,255,255,0.7)"/>
+      <polygon points="15,-15 17.5,-17 17.5,-13 15,-13 12.5,-15 12.5,-17" fill="rgba(255,255,255,0.7)"/>
+      <polygon points="-15,15 -12.5,17 -10,15 -12.5,13 -15,13 -17.5,15" fill="rgba(255,255,255,0.7)"/>
+    </g>
+    
+    <!-- Data Flow Lines (subtle) -->
+    <g stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none">
+      <path d="M-15,-15 L0,0 L15,15"/>
+      <path d="M15,-15 L0,0 L-15,15"/>
+      <path d="M0,-22 L0,0 L0,22"/>
+      <path d="M-22,0 L0,0 L22,0"/>
+    </g>
+  </g>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteFreezer - Security DVR + AI Forensics | Open Source</title>
+    <meta name="description" content="Open source security DVR. Record everything, store in your S3/MinIO/GCS/Azure bucket, query with AI agents. BYOB + BYOA. Flexible retention 7-365+ days. Post-breach forensics when you need it.">
+    <meta name="keywords" content="security dvr, byob, byoa, parquet, s3, minio, ai forensics, post-breach, open source siem, network flows, syslog, retention, compliance"">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/tab-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bytefreezer.org/">
+    <meta property="og:title" content="ByteFreezer - Security DVR + AI Forensics">
+    <meta property="og:description" content="Open source security DVR. BYOB + BYOA. Record everything, store in your bucket, query with AI agents. Post-breach forensics when you need it.">
+    <meta property="og:image" content="https://bytefreezer.org/assets/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bytefreezer.org/">
+    <meta property="twitter:title" content="ByteFreezer - Security DVR + AI Forensics">
+    <meta property="twitter:description" content="Open source security DVR. BYOB + BYOA. Record everything, store in your bucket, query with AI agents.">
+    <meta property="twitter:image" content="https://bytefreezer.org/assets/images/og-image.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-snowflake"></i>
+                <span>ByteFreezer</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#the-problem" class="nav-link">The Problem</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#the-solution" class="nav-link">Solution</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#getting-started" class="nav-link">Get Started</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/n0needt0/bytefreezer" class="nav-link github-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-video"></i>
+                    <span>Open Source Security DVR + AI Forensics</span>
+                </div>
+                <h1 class="hero-title">
+                    Your Data. Your Storage. Your AI.
+                </h1>
+                <p class="hero-subtitle">
+                    Record everything. Store in your own S3-compatible bucket (AWS S3, MinIO, Backblaze, Cloudflare R2). Query with any AI agent when you need answers. Flexible retention (7-365+ days). Complete forensics at a fraction of traditional SIEM costs.
+                </p>
+
+                <!-- Key Features -->
+                <div class="hero-value-props">
+                    <div class="value-prop">
+                        <i class="fas fa-database"></i>
+                        <div>
+                            <strong>BYOB: Bring Your Own Bucket</strong>
+                            <span>S3-compatible storage - you control the data</span>
+                        </div>
+                    </div>
+                    <div class="value-prop">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <strong>BYOA: Bring Your Own Agent</strong>
+                            <span>OpenAI, Claude, Gemini, or local LLMs</span>
+                        </div>
+                    </div>
+                    <div class="value-prop">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Flexible Retention</strong>
+                            <span>7 days to perpetual - choose what you need</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#getting-started" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Get Started
+                    </a>
+                    <a href="https://github.com/n0needt0/bytefreezer" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">Open Source</div>
+                        <div class="stat-label">MIT License</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">BYOB + BYOA</div>
+                        <div class="stat-label">Your Bucket, Your AI</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">7-365+</div>
+                        <div class="stat-label">Days Retention</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="architecture-preview">
+                    <div class="data-flow">
+                        <div class="flow-item input">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Any Source</span>
+                            <small>Syslog, Flows, eBPF</small>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item processor">
+                            <i class="fas fa-snowflake"></i>
+                            <span>ByteFreezer</span>
+                            <small>Transform & Compress</small>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item output">
+                            <i class="fas fa-cloud"></i>
+                            <span>Your Storage</span>
+                            <small>S3-Compatible</small>
+                        </div>
+                    </div>
+                    <div class="flow-separator">↓</div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 0.8rem; background: rgba(0,136,255,0.1); border: 1px solid #0088ff; border-radius: 6px;">
+                            <div style="font-size: 1.5em; color: #0088ff;"><i class="fas fa-robot"></i></div>
+                            <div style="font-size: 0.85em; font-weight: bold; color: #0088ff;">AI Agent</div>
+                        </div>
+                        <div style="text-align: center; padding: 0.8rem; background: rgba(0,136,255,0.1); border: 1px solid #0088ff; border-radius: 6px;">
+                            <div style="font-size: 1.5em; color: #0088ff;"><i class="fas fa-database"></i></div>
+                            <div style="font-size: 0.85em; font-weight: bold; color: #0088ff;">SQL Query</div>
+                        </div>
+                        <div style="text-align: center; padding: 0.8rem; background: rgba(0,136,255,0.1); border: 1px solid #0088ff; border-radius: 6px;">
+                            <div style="font-size: 1.5em; color: #0088ff;"><i class="fas fa-store"></i></div>
+                            <div style="font-size: 0.85em; font-weight: bold; color: #0088ff;">Curated Data Marketplace</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+        </div>
+    </section>
+    <!-- The Problem Section -->
+    <section class="problem-solution" id="the-problem">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Problem: Post-Breach Forensics</h2>
+                <p class="section-subtitle">
+                    When a breach is discovered weeks later, you need to reconstruct what happened
+                </p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Traditional SIEMs Are Expensive</h3>
+                    <p>Enterprise SIEM solutions cost $1M+ annually. Splunk charges $150/GB, Datadog has complex per-host pricing, Oracle requires multi-billion dollar contracts. These costs make comprehensive logging prohibitive.</p>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Vendor Controls Your Data</h3>
+                    <p>Your security data lives in vendor infrastructure. You pay for retention, pay for queries, pay for exports. When you want to leave, migration is painful and expensive. Compliance becomes their problem, not yours.</p>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3>Limited Retention Windows</h3>
+                    <p>Cost-prohibitive retention means you can only afford 7-30 days. When sophisticated attacks are discovered months later, the evidence is already gone. No forensics possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section class="problem-solution" id="the-solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Solution: Security DVR</h2>
+                <p class="section-subtitle">
+                    Think security camera DVR, but for all your operational data
+                </p>
+            </div>
+
+            <!-- DVR Analogy -->
+            <div style="max-width: 800px; margin: 0 auto 4rem auto; padding: 2rem; background: rgba(0,136,255,0.05); border-left: 4px solid #0088ff;">
+                <h3 style="margin-top: 0; color: #0088ff;">What is a Security DVR?</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Your building has security cameras. They record <strong>24/7</strong> to a DVR. When something happens (theft, accident, dispute), you <strong>rewind the footage</strong> and see exactly what occurred. You don't watch cameras in real-time - you investigate when needed.
+                </p>
+                <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 0;">
+                    <strong>ByteFreezer is the same concept for your IT infrastructure.</strong> Record everything (logs, network flows, metrics) continuously. Store compressed in your own bucket. When a breach is discovered weeks later, rewind and investigate with AI-powered queries. Complete forensics from complete history.
+                </p>
+            </div>
+
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>BYOB: Bring Your Own Bucket</h3>
+                    <ul class="ps-list">
+                        <li>Data written directly to <strong>your S3-compatible storage</strong></li>
+                        <li>AWS S3, MinIO, Backblaze B2, Cloudflare R2, Wasabi</li>
+                        <li>You control it. You own it. <strong>You never pay vendor markup.</strong></li>
+                        <li>Perfect for compliance: HIPAA, SOC2, PCI-DSS, GDPR</li>
+                        <li>Zero-knowledge architecture - we never custody your data</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>BYOA: Bring Your Own Agent</h3>
+                    <ul class="ps-list">
+                        <li><strong>Just add your API key:</strong> OpenAI, Claude, Gemini, local LLMs</li>
+                        <li>ByteFreezer provides integration layer (metadata, optimization, context)</li>
+                        <li>Ask questions in natural language, get answers from complete history</li>
+                        <li>"Show failed SSH attempts from last 14 days"</li>
+                        <li>Switch AI providers anytime - no vendor lock-in</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Flexible Everything</h3>
+                    <ul class="ps-list">
+                        <li><strong>Retention:</strong> 7, 30, 90, 365 days, or perpetual</li>
+                        <li><strong>Storage:</strong> S3 Standard ($4/TB) or Glacier ($0.40/TB)</li>
+                        <li><strong>Format:</strong> Standard Parquet - query with any tool</li>
+                        <li>DuckDB, ClickHouse, Athena, Spark, Jupyter notebooks</li>
+                        <li>Leave ByteFreezer anytime - data stays accessible forever</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- S3-Compatible Storage Section -->
+    <section class="problem-solution" id="storage-options">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">S3-Compatible Storage Options</h2>
+                <p class="section-subtitle">
+                    ByteFreezer supports any S3-compatible storage provider
+                </p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>Cloud Providers</h3>
+                    <ul class="ps-list">
+                        <li><strong>AWS S3:</strong> Original, most compatible, global availability</li>
+                        <li><strong>Backblaze B2:</strong> S3-compatible, $6/TB storage, free egress to partners</li>
+                        <li><strong>Cloudflare R2:</strong> S3-compatible, $15/TB storage, zero egress fees</li>
+                        <li><strong>Wasabi:</strong> S3-compatible, $6.99/TB storage, no egress fees</li>
+                        <li><strong>DigitalOcean Spaces:</strong> S3-compatible, simple pricing</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Self-Hosted</h3>
+                    <ul class="ps-list">
+                        <li><strong>MinIO:</strong> Open source, Kubernetes-native, high performance</li>
+                        <li><strong>Ceph:</strong> Object storage with S3 API, enterprise-grade</li>
+                        <li><strong>SeaweedFS:</strong> Distributed storage with S3 gateway</li>
+                        <li><strong>Garage:</strong> Lightweight, geo-distributed object storage</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Important Notes</h3>
+                    <ul class="ps-list">
+                        <li><strong>Not supported:</strong> Azure Blob Storage (different API)</li>
+                        <li><strong>Limited support:</strong> Google Cloud Storage (interoperability mode only)</li>
+                        <li><strong>Best for ByteFreezer:</strong> AWS S3, MinIO, Backblaze B2, Cloudflare R2</li>
+                        <li><strong>On-premises:</strong> MinIO is the recommended choice</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="features" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How ByteFreezer Works</h2>
+                <p class="section-subtitle">
+                    Four simple steps from data ingestion to AI-powered forensics
+                </p>
+            </div>
+
+            <!-- Visual Flow Diagram -->
+            <div style="max-width: 1000px; margin: 0 auto 4rem auto;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <!-- Step 1 -->
+                    <div style="flex: 1; min-width: 200px; text-align: center; padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid rgba(0,136,255,0.3); border-radius: 8px;">
+                        <div style="font-size: 3em; color: #0088ff; margin-bottom: 0.5rem;">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div style="font-size: 1.5em; font-weight: bold; color: #0088ff; margin-bottom: 0.5rem;">1. Collect</div>
+                        <div style="font-size: 0.9em; color: #ccc;">Syslog, Flows, eBPF<br>UDP/TCP/Kafka</div>
+                    </div>
+
+                    <div style="font-size: 2em; color: #0088ff; flex-shrink: 0;">→</div>
+
+                    <!-- Step 2 -->
+                    <div style="flex: 1; min-width: 200px; text-align: center; padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid rgba(0,136,255,0.3); border-radius: 8px;">
+                        <div style="font-size: 3em; color: #0088ff; margin-bottom: 0.5rem;">
+                            <i class="fas fa-compress"></i>
+                        </div>
+                        <div style="font-size: 1.5em; font-weight: bold; color: #0088ff; margin-bottom: 0.5rem;">2. Transform</div>
+                        <div style="font-size: 0.9em; color: #ccc;">Filter, Enrich<br>Compress to Parquet</div>
+                    </div>
+
+                    <div style="font-size: 2em; color: #0088ff; flex-shrink: 0;">→</div>
+
+                    <!-- Step 3 -->
+                    <div style="flex: 1; min-width: 200px; text-align: center; padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid rgba(0,136,255,0.3); border-radius: 8px;">
+                        <div style="font-size: 3em; color: #0088ff; margin-bottom: 0.5rem;">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div style="font-size: 1.5em; font-weight: bold; color: #0088ff; margin-bottom: 0.5rem;">3. Store</div>
+                        <div style="font-size: 0.9em; color: #ccc;">Your S3 Bucket<br>You control it</div>
+                    </div>
+                </div>
+
+                <!-- Query Options Below -->
+                <div style="margin-top: 2rem; text-align: center; font-size: 2em; color: #0088ff;">↓</div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
+                    <!-- AI Agent -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.1); border: 2px solid #0088ff; border-radius: 8px;">
+                        <div style="text-align: center; font-size: 2.5em; color: #0088ff; margin-bottom: 1rem;">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div style="text-align: center; font-size: 1.3em; font-weight: bold; color: #0088ff; margin-bottom: 1rem;">4a. AI Agent Query</div>
+                        <ul style="font-size: 0.9em; color: #ccc; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
+                            <li><strong>Natural language queries</strong> - ask questions in plain English</li>
+                            <li><strong>BYOA:</strong> OpenAI, Claude, Gemini, or local LLMs</li>
+                            <li><strong>Context injection</strong> - AI understands your schema</li>
+                            <li><strong>Timeline reconstruction</strong> - generate incident reports</li>
+                            <li><strong>Examples:</strong> "Show failed SSH from China last week"</li>
+                        </ul>
+                    </div>
+
+                    <!-- SQL Query -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.1); border: 2px solid #0088ff; border-radius: 8px;">
+                        <div style="text-align: center; font-size: 2.5em; color: #0088ff; margin-bottom: 1rem;">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div style="text-align: center; font-size: 1.3em; font-weight: bold; color: #0088ff; margin-bottom: 1rem;">4b. SQL Query</div>
+                        <ul style="font-size: 0.9em; color: #ccc; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
+                            <li><strong>Direct Parquet access</strong> - standard columnar format</li>
+                            <li><strong>DuckDB:</strong> In-process analytics, blazing fast</li>
+                            <li><strong>ClickHouse:</strong> Real-time OLAP queries</li>
+                            <li><strong>AWS Athena:</strong> Serverless SQL on S3</li>
+                            <li><strong>Integrations:</strong> Grafana, Jupyter, Spark, Pandas</li>
+                        </ul>
+                    </div>
+
+                    <!-- Curated Data Marketplace -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.1); border: 2px solid #0088ff; border-radius: 8px;">
+                        <div style="text-align: center; font-size: 2.5em; color: #0088ff; margin-bottom: 1rem;">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div style="text-align: center; font-size: 1.3em; font-weight: bold; color: #0088ff; margin-bottom: 1rem;">4c. Curated Data Marketplace</div>
+                        <ul style="font-size: 0.9em; color: #ccc; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
+                            <li><strong>Monetize operational data</strong> you're already collecting</li>
+                            <li><strong>Anonymize & package</strong> datasets automatically</li>
+                            <li><strong>List in marketplace</strong> or sell directly</li>
+                            <li><strong>Use cases:</strong> Threat intel, traffic patterns, sensor data</li>
+                            <li><strong>Standard format</strong> - buyers use any tool</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Details -->
+            <div style="max-width: 900px; margin: 3rem auto 0 auto; padding: 2rem; background: rgba(0,136,255,0.03); border-radius: 8px;">
+                <h3 style="color: #0088ff; margin-top: 0;">Technical Details</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                    <div>
+                        <strong style="color: #0088ff;">Deploy Anywhere</strong>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em; line-height: 1.6;">On-premise, AWS, GCP, Azure, or hosted. Accepts UDP, TCP, Kafka, webhooks, syslog, sFlow, NetFlow, IPFIX, eBPF. Zero data loss.</p>
+                    </div>
+                    <div>
+                        <strong style="color: #0088ff;">Automatic Processing</strong>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em; line-height: 1.6;">Schema detection, ZSTD compression, metadata catalog generation. Reduces storage by 90%+ vs raw logs.</p>
+                    </div>
+                    <div>
+                        <strong style="color: #0088ff;">Query Options</strong>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em; line-height: 1.6;">AI with your API key OR direct with DuckDB, ClickHouse, Athena, Spark, Grafana, Jupyter notebooks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Integration Layer Section -->
+    <section class="problem-solution" id="ai-integration">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI Integration Layer: Just Add Your API Key</h2>
+                <p class="section-subtitle">
+                    We provide the integration layer. You provide your AI. No custom code required.
+                </p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Simple Setup</h3>
+                    <ul class="ps-list">
+                        <li>Add your OpenAI, Anthropic Claude, or Google Gemini API key</li>
+                        <li>Or point to your local LLM endpoint (Ollama, LM Studio, vLLM)</li>
+                        <li>ByteFreezer automatically connects AI to your data</li>
+                        <li>Zero custom code - works out of the box</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>We Handle The Hard Parts</h3>
+                    <ul class="ps-list">
+                        <li><strong>Metadata catalog:</strong> Automatic schema discovery and indexing</li>
+                        <li><strong>Query optimization:</strong> Convert natural language to efficient Parquet queries</li>
+                        <li><strong>Context injection:</strong> Provide AI with relevant data context</li>
+                        <li><strong>Result formatting:</strong> Parse and visualize AI responses</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Example Queries</h3>
+                    <ul class="ps-list">
+                        <li>"Show me all failed SSH attempts from international IPs in the last 14 days"</li>
+                        <li>"What network flows happened before the database outage on October 15?"</li>
+                        <li>"Generate a timeline of API calls from user_id 847392"</li>
+                        <li>"Find unusual outbound traffic patterns that started in the last week"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="features" id="getting-started">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-subtitle">
+                    Choose your deployment model: On-site, Cloud, or Hybrid
+                </p>
+            </div>
+
+            <!-- Deployment Options -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem;">
+                <!-- On-site -->
+                <div style="padding: 2rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                    <div style="text-align: center; font-size: 3em; color: #0088ff; margin-bottom: 1rem;">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 style="text-align: center; color: #0088ff; margin-bottom: 1.5rem;">On-site</h3>
+                    <ul style="font-size: 0.95em; line-height: 1.8; color: #ccc;">
+                        <li><strong>Full control:</strong> Deploy in your datacenter</li>
+                        <li><strong>Air-gapped:</strong> No external dependencies</li>
+                        <li><strong>Storage:</strong> MinIO, Ceph, or local S3-compatible</li>
+                        <li><strong>Install:</strong> Kubernetes, Docker, or bare metal</li>
+                        <li><strong>Data residency:</strong> Never leaves your premises</li>
+                        <li><strong>Best for:</strong> Regulated industries, government, high security</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud -->
+                <div style="padding: 2rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                    <div style="text-align: center; font-size: 3em; color: #0088ff; margin-bottom: 1rem;">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 style="text-align: center; color: #0088ff; margin-bottom: 1.5rem;">Cloud</h3>
+                    <ul style="font-size: 0.95em; line-height: 1.8; color: #ccc;">
+                        <li><strong>Managed platform:</strong> We handle infrastructure</li>
+                        <li><strong>Storage:</strong> Your AWS S3, Backblaze, Cloudflare R2</li>
+                        <li><strong>Setup:</strong> Sign up, configure bucket, start collecting</li>
+                        <li><strong>10 minutes:</strong> From signup to data ingestion</li>
+                        <li><strong>Zero-knowledge:</strong> We never custody your data</li>
+                        <li><strong>Best for:</strong> Startups, SMBs, fast deployment</li>
+                    </ul>
+                </div>
+
+                <!-- Hybrid -->
+                <div style="padding: 2rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                    <div style="text-align: center; font-size: 3em; color: #0088ff; margin-bottom: 1rem;">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 style="text-align: center; color: #0088ff; margin-bottom: 1.5rem;">Hybrid</h3>
+                    <ul style="font-size: 0.95em; line-height: 1.8; color: #ccc;">
+                        <li><strong>Best of both:</strong> On-prem collection, cloud analytics</li>
+                        <li><strong>Proxy on-site:</strong> Collect sensitive data locally</li>
+                        <li><strong>Storage:</strong> Your bucket (cloud or on-prem)</li>
+                        <li><strong>Query anywhere:</strong> Cloud AI or local SQL</li>
+                        <li><strong>Compliance:</strong> Data residency with cloud flexibility</li>
+                        <li><strong>Best for:</strong> Enterprises, multi-cloud, compliance needs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Installation Steps -->
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border-radius: 8px;">
+                    <h3 style="color: #0088ff; margin-bottom: 1rem;">Installation Steps</h3>
+
+                    <!-- Docker Installation -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0088ff; margin-bottom: 0.75rem;">Docker Installation</h4>
+                        <pre style="background: #1a1a1a; padding: 1rem; border-radius: 6px; overflow-x: auto; color: #ccc; font-size: 0.9em;"><code># Pull the latest image
+docker pull bytefreezer/proxy:latest
+
+# Run with environment variables
+docker run -d \
+  --name bytefreezer-proxy \
+  -p 514:514/udp \
+  -p 514:514/tcp \
+  -e BF_STORAGE_ENDPOINT=s3.amazonaws.com \
+  -e BF_STORAGE_BUCKET=your-bucket-name \
+  -e BF_STORAGE_ACCESS_KEY=your-access-key \
+  -e BF_STORAGE_SECRET_KEY=your-secret-key \
+  -e BF_RETENTION_DAYS=30 \
+  bytefreezer/proxy:latest</code></pre>
+                    </div>
+
+                    <!-- Kubernetes Installation -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0088ff; margin-bottom: 0.75rem;">Kubernetes Installation</h4>
+                        <pre style="background: #1a1a1a; padding: 1rem; border-radius: 6px; overflow-x: auto; color: #ccc; font-size: 0.9em;"><code># Add ByteFreezer Helm repository
+helm repo add bytefreezer https://charts.bytefreezer.io
+helm repo update
+
+# Install with custom values
+helm install bytefreezer bytefreezer/proxy \
+  --set storage.endpoint=s3.amazonaws.com \
+  --set storage.bucket=your-bucket-name \
+  --set storage.accessKey=your-access-key \
+  --set storage.secretKey=your-secret-key \
+  --set retention.days=30</code></pre>
+                    </div>
+
+                    <!-- Example Configuration -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0088ff; margin-bottom: 0.75rem;">Example Configuration File (config.yaml)</h4>
+                        <pre style="background: #1a1a1a; padding: 1rem; border-radius: 6px; overflow-x: auto; color: #ccc; font-size: 0.9em;"><code># ByteFreezer Proxy Configuration
+server:
+  listen: "0.0.0.0:514"
+  protocols:
+    - udp
+    - tcp
+
+# S3-compatible storage
+storage:
+  type: s3
+  endpoint: s3.amazonaws.com  # or minio.example.com
+  bucket: security-logs
+  region: us-east-1
+  access_key: ${BF_ACCESS_KEY}
+  secret_key: ${BF_SECRET_KEY}
+  path_style: false  # true for MinIO
+
+# Data processing
+processing:
+  compression: zstd
+  format: parquet
+  batch_size: 10000
+  flush_interval: 60s
+
+# Retention policy
+retention:
+  days: 30
+  glacier_after: 7  # Move to cold storage after 7 days
+
+# Data sources
+sources:
+  - name: syslog
+    type: syslog
+    port: 514
+
+  - name: netflow
+    type: netflow
+    port: 2055
+
+  - name: kafka
+    type: kafka
+    brokers:
+      - kafka1.example.com:9092
+    topics:
+      - security-events</code></pre>
+                    </div>
+
+                    <!-- Troubleshooting -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0088ff; margin-bottom: 0.75rem;">Troubleshooting</h4>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div style="padding: 1rem; background: rgba(0,136,255,0.1); border-left: 3px solid #0088ff; border-radius: 4px;">
+                                <strong style="color: #0088ff;">Problem: Proxy not receiving data</strong>
+                                <p style="margin: 0.5rem 0 0 0; font-size: 0.9em;">
+                                    • Check firewall rules (UDP/TCP port 514)<br>
+                                    • Verify syslog source configuration<br>
+                                    • Run: <code>tcpdump -i any port 514</code> to verify traffic<br>
+                                    • Check logs: <code>docker logs bytefreezer-proxy</code>
+                                </p>
+                            </div>
+                            <div style="padding: 1rem; background: rgba(0,136,255,0.1); border-left: 3px solid #0088ff; border-radius: 4px;">
+                                <strong style="color: #0088ff;">Problem: S3 upload failures</strong>
+                                <p style="margin: 0.5rem 0 0 0; font-size: 0.9em;">
+                                    • Verify S3 credentials and bucket permissions<br>
+                                    • Check bucket policy allows PutObject<br>
+                                    • For MinIO: ensure path_style: true<br>
+                                    • Test with: <code>aws s3 ls s3://your-bucket</code>
+                                </p>
+                            </div>
+                            <div style="padding: 1rem; background: rgba(0,136,255,0.1); border-left: 3px solid #0088ff; border-radius: 4px;">
+                                <strong style="color: #0088ff;">Problem: High memory usage</strong>
+                                <p style="margin: 0.5rem 0 0 0; font-size: 0.9em;">
+                                    • Reduce batch_size in config (default: 10000)<br>
+                                    • Decrease flush_interval for faster writes<br>
+                                    • Set resource limits in Docker/K8s<br>
+                                    • Monitor with: <code>docker stats bytefreezer-proxy</code>
+                                </p>
+                            </div>
+                            <div style="padding: 1rem; background: rgba(0,136,255,0.1); border-left: 3px solid #0088ff; border-radius: 4px;">
+                                <strong style="color: #0088ff;">Problem: Data not appearing in queries</strong>
+                                <p style="margin: 0.5rem 0 0 0; font-size: 0.9em;">
+                                    • Wait for flush_interval (default: 60s)<br>
+                                    • Check S3 bucket for Parquet files<br>
+                                    • Verify metadata catalog generation<br>
+                                    • Refresh metadata: <code>bytefreezer catalog refresh</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentation Links -->
+                    <div>
+                        <h4 style="color: #0088ff; margin-bottom: 0.75rem;">Documentation & Resources</h4>
+                        <ul style="line-height: 2; font-size: 0.95em;">
+                            <li><a href="https://docs.bytefreezer.io/getting-started" style="color: #0088ff;">Complete Installation Guide</a></li>
+                            <li><a href="https://docs.bytefreezer.io/configuration" style="color: #0088ff;">Configuration Reference</a></li>
+                            <li><a href="https://docs.bytefreezer.io/storage" style="color: #0088ff;">Storage Provider Setup (AWS, MinIO, Backblaze, R2)</a></li>
+                            <li><a href="https://docs.bytefreezer.io/sources" style="color: #0088ff;">Data Source Configuration (Syslog, NetFlow, Kafka, eBPF)</a></li>
+                            <li><a href="https://docs.bytefreezer.io/ai-integration" style="color: #0088ff;">AI Integration Guide</a></li>
+                            <li><a href="https://docs.bytefreezer.io/querying" style="color: #0088ff;">Query Examples (DuckDB, ClickHouse, Athena)</a></li>
+                            <li><a href="https://github.com/n0needt0/bytefreezer/tree/main/examples" style="color: #0088ff;">Example Configurations on GitHub</a></li>
+                            <li><a href="https://docs.bytefreezer.io/troubleshooting" style="color: #0088ff;">Troubleshooting Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="problem-solution" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pricing</h2>
+                <p class="section-subtitle">
+                    Transparent pricing. Deploy yourself (free) or use our hosted platform.
+                </p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Free Forever</h3>
+                    <p><strong>$0/month</strong></p>
+                    <ul class="ps-list">
+                        <li>1TB/month ingestion</li>
+                        <li>Store in your own bucket</li>
+                        <li>Self-hosted proxy</li>
+                        <li>7-30 day retention</li>
+                        <li>Community support</li>
+                        <li>Perfect for: Small teams, testing, personal projects</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Starter</h3>
+                    <p><strong>$199/month</strong></p>
+                    <ul class="ps-list">
+                        <li>20TB/month included</li>
+                        <li>Shared data plane (multi-region)</li>
+                        <li>AI query access (BYOA)</li>
+                        <li>7-90 day retention</li>
+                        <li>Email support</li>
+                        <li>Perfect for: Growing companies, security teams</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Professional</h3>
+                    <p><strong>$499/month</strong></p>
+                    <ul class="ps-list">
+                        <li>50TB/month included</li>
+                        <li>Managed proxy option</li>
+                        <li>Priority support & SLA</li>
+                        <li>7-365 day retention</li>
+                        <li>Advanced integrations</li>
+                        <li>Perfect for: Mid-market, compliance requirements</li>
+                    </ul>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Enterprise</h3>
+                    <p><strong>Custom pricing</strong></p>
+                    <ul class="ps-list">
+                        <li>Unlimited data ingestion</li>
+                        <li>Cross-region support</li>
+                        <li>On-premises K8s deployment</li>
+                        <li>Dedicated support & custom SLAs</li>
+                        <li>Perpetual retention option</li>
+                        <li>Perfect for: Large enterprises, regulated industries</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-header" style="margin-top: 3rem;">
+                <h3>Storage Costs (You Pay Directly)</h3>
+                <p>ByteFreezer BYOB means you pay your storage provider directly - no vendor markup</p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <h3>Example: 20TB/month</h3>
+                    <p><strong>Traditional SIEM (Splunk):</strong> $150/GB = $3,000-$4,000/month = $40,000/year</p>
+                    <p><strong>ByteFreezer + AWS S3:</strong> $199 platform + $80 storage = $279/month = $3,348/year</p>
+                    <p style="color: #0088ff;"><strong>Savings: 92%</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="features" id="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Use Cases</h2>
+                <p class="section-subtitle">
+                    Security forensics, compliance, network analysis, DevOps logging
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Security Teams & CISOs</h3>
+                    <p class="feature-description">
+                        <strong>Post-breach forensics</strong> when attack discovered days or weeks later. Complete visibility with flexible retention (30-365+ days). Pass SOC2, HIPAA, PCI-DSS compliance audits without expensive SIEM suites. AI-powered timeline reconstruction. Threat hunting across complete historical data.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="feature-title">Network Operations</h3>
+                    <p class="feature-description">
+                        <strong>DVR for your network.</strong> Capture sFlow, NetFlow, IPFIX at scale. Historical network performance analysis. DDoS pattern detection and investigation. Capacity planning from real traffic data. Store years of network flows cheaply. No sampling = accurate analysis.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">DevOps & Platform Teams</h3>
+                    <p class="feature-description">
+                        <strong>Replace expensive log platforms.</strong> Stop paying per-event for Datadog/Splunk. Store 99% of logs cold, query when needed. Keep hot analytics for recent data only. Complete audit trail for incidents. Query historical logs without per-GB fees. Integrates with Grafana, Jupyter.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="feature-title">IoT & Edge Computing</h3>
+                    <p class="feature-description">
+                        <strong>Sensor data at scale.</strong> Aggregate telemetry from distributed devices. Fleet management and predictive maintenance. Environmental monitoring and compliance. Smart infrastructure data lakes. Store petabytes affordably. Build ML models from complete datasets.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Industry-Specific Use Cases -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Industry-Specific Use Cases</h3>
+                <div class="problem-solution-grid">
+                    <!-- Healthcare -->
+                    <div class="ps-card">
+                        <div class="ps-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Healthcare & HIPAA Compliance</h3>
+                        <ul class="ps-list">
+                            <li><strong>Audit trails:</strong> Complete access logs for PHI (Protected Health Information)</li>
+                            <li><strong>Breach response:</strong> Forensics required by HHS breach notification rules</li>
+                            <li><strong>Retention:</strong> 6-year minimum for HIPAA, affordable with cold storage</li>
+                            <li><strong>Data residency:</strong> On-prem or specific AWS regions for compliance</li>
+                            <li><strong>Example:</strong> Hospital system tracks 500M annual access events, $3K/month vs $45K SIEM</li>
+                        </ul>
+                    </div>
+
+                    <!-- Financial Services -->
+                    <div class="ps-card">
+                        <div class="ps-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Financial Services & PCI-DSS</h3>
+                        <ul class="ps-list">
+                            <li><strong>PCI Requirement 10:</strong> Track all access to cardholder data</li>
+                            <li><strong>90-day retention minimum:</strong> Store affordably in your S3 bucket</li>
+                            <li><strong>Immutable logs:</strong> S3 Object Lock for tamper-proof audit trails</li>
+                            <li><strong>Real-time alerts:</strong> AI queries for suspicious transaction patterns</li>
+                            <li><strong>Example:</strong> Fintech startup passes PCI audit, $500/month vs $15K Splunk</li>
+                        </ul>
+                    </div>
+
+                    <!-- Government & Defense -->
+                    <div class="ps-card">
+                        <div class="ps-icon">
+                            <i class="fas fa-flag-usa"></i>
+                        </div>
+                        <h3>Government & Defense</h3>
+                        <ul class="ps-list">
+                            <li><strong>Air-gapped deployment:</strong> On-prem with MinIO, zero external dependencies</li>
+                            <li><strong>NIST compliance:</strong> Complete audit trails for NIST 800-53, FISMA</li>
+                            <li><strong>Classified networks:</strong> Deploy on SIPR/JWICS with local storage</li>
+                            <li><strong>Long retention:</strong> 7+ years for compliance, perpetual for investigations</li>
+                            <li><strong>Example:</strong> Defense contractor stores 10TB/day, $2K/month MinIO on-prem</li>
+                        </ul>
+                    </div>
+
+                    <!-- E-commerce & Retail -->
+                    <div class="ps-card">
+                        <div class="ps-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>E-commerce & Retail</h3>
+                        <ul class="ps-list">
+                            <li><strong>Fraud detection:</strong> Query historical transaction patterns with AI</li>
+                            <li><strong>Customer behavior:</strong> Analyze clickstream data for ML training</li>
+                            <li><strong>API monitoring:</strong> Track payment gateway performance and errors</li>
+                            <li><strong>Marketplace data:</strong> Sell anonymized shopping pattern datasets</li>
+                            <li><strong>Example:</strong> Retailer analyzes 2 years of data to detect card testing attacks</li>
+                        </ul>
+                    </div>
+
+                    <!-- SaaS & Cloud Providers -->
+                    <div class="ps-card">
+                        <div class="ps-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>SaaS & Cloud Providers</h3>
+                        <ul class="ps-list">
+                            <li><strong>Multi-tenant logging:</strong> Separate buckets per customer, full isolation</li>
+                            <li><strong>Customer forensics:</strong> Provide customers with incident investigation tools</li>
+                            <li><strong>SOC2 Type II:</strong> Complete audit trails required for compliance</li>
+                            <li><strong>Cost optimization:</strong> Stop paying Datadog $50K/month for cold logs</li>
+                            <li><strong>Example:</strong> SaaS company with 1000 customers, $800/month vs $80K Splunk</li>
+                        </ul>
+                    </div>
+
+                    <!-- Manufacturing & ICS -->
+                    <div class="ps-card">
+                        <div class="ps-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Manufacturing & Industrial Control Systems</h3>
+                        <ul class="ps-list">
+                            <li><strong>OT security:</strong> Monitor ICS/SCADA networks for anomalies</li>
+                            <li><strong>Production forensics:</strong> Investigate equipment failures and downtime</li>
+                            <li><strong>Sensor data:</strong> Time-series metrics from thousands of PLCs</li>
+                            <li><strong>Predictive maintenance:</strong> ML models trained on historical failure data</li>
+                            <li><strong>Example:</strong> Factory stores 5 years of OT logs, investigates supply chain attack</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-World Customer Stories -->
+            <div style="margin-top: 4rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Real-World Customer Stories</h3>
+
+                <div style="display: grid; gap: 2rem;">
+                    <!-- Story 1 -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.05); border-left: 4px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff; margin-top: 0;">Healthcare Provider: $42K/month → $3K/month (93% savings)</h4>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Challenge:</strong> 500-bed hospital needed 6-year retention for HIPAA compliance. Splunk quoted $500K annually for 50TB/month ingestion.
+                        </p>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Solution:</strong> ByteFreezer proxy deployed on-prem, writing to MinIO cluster. 90% compression rate reduced storage to 5TB/month.
+                        </p>
+                        <p style="line-height: 1.8; margin: 0;">
+                            <strong>Results:</strong> $3K/month (ByteFreezer Pro + MinIO hardware). AI forensics identified unauthorized EHR access 3 months after incident. Passed HIPAA audit with complete 6-year audit trail.
+                        </p>
+                    </div>
+
+                    <!-- Story 2 -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.05); border-left: 4px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff; margin-top: 0;">Fintech Startup: Zero to PCI-DSS compliant in 2 weeks</h4>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Challenge:</strong> Payment processor needed PCI-DSS compliance for Series A funding. Traditional SIEM would cost $15K/month, blocking runway.
+                        </p>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Solution:</strong> ByteFreezer cloud with S3 Object Lock for immutable logs. 90-day retention in S3 Standard, older data in Glacier.
+                        </p>
+                        <p style="line-height: 1.8; margin: 0;">
+                            <strong>Results:</strong> $500/month total cost. Passed PCI audit on first attempt. AI queries detected card testing attack, prevented $50K fraud loss.
+                        </p>
+                    </div>
+
+                    <!-- Story 3 -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.05); border-left: 4px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff; margin-top: 0;">E-commerce Platform: Data marketplace generates $12K/month passive revenue</h4>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Challenge:</strong> Large e-commerce site collecting 100TB/month of clickstream data. High storage costs, no ROI on data retention.
+                        </p>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Solution:</strong> ByteFreezer with hybrid deployment. Anonymized shopping pattern datasets packaged for marketplace.
+                        </p>
+                        <p style="line-height: 1.8; margin: 0;">
+                            <strong>Results:</strong> $12K/month revenue from selling curated datasets to ML researchers and competitors. Storage costs offset by data sales. AI queries improved fraud detection by 40%.
+                        </p>
+                    </div>
+
+                    <!-- Story 4 -->
+                    <div style="padding: 2rem; background: rgba(0,136,255,0.05); border-left: 4px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff; margin-top: 0;">Manufacturing: Prevented $2M production line shutdown</h4>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Challenge:</strong> Auto parts manufacturer experienced intermittent production line failures. No historical data to identify root cause.
+                        </p>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>Solution:</strong> ByteFreezer collecting OT network flows and PLC sensor data. 365-day retention enabled historical analysis.
+                        </p>
+                        <p style="line-height: 1.8; margin: 0;">
+                            <strong>Results:</strong> AI analysis of 6-month historical data identified network congestion pattern. Fixed before major failure. Estimated $2M saved from prevented shutdown. Now using data for predictive maintenance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Scenarios -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Technical Scenarios</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff;">Ransomware Investigation</h4>
+                        <p style="font-size: 0.9em; line-height: 1.7;">
+                            Ransomware discovered on Friday, encrypted 200 servers. ByteFreezer retained 90 days of network flows and authentication logs. AI query: "Show lateral movement patterns 2 weeks before encryption event." Identified patient zero: contractor VPN compromise 14 days prior. Full attack timeline reconstructed. Evidence provided to FBI.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff;">API Abuse Detection</h4>
+                        <p style="font-size: 0.9em; line-height: 1.7;">
+                            SaaS platform noticed unusual traffic spikes. ByteFreezer stored 6 months of API logs. SQL query in DuckDB: "Find API keys with >10x normal request rate." Identified compromised customer API key used for credential stuffing. Customer notified within hours. $500K in compute costs prevented.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff;">DDoS Pattern Analysis</h4>
+                        <p style="font-size: 0.9em; line-height: 1.7;">
+                            Gaming platform experienced monthly DDoS attacks. ByteFreezer collected NetFlow data for 1 year. Jupyter notebook analysis revealed attack timing correlated with game tournament schedules. Implemented preemptive mitigation. Attacks dropped 80%. Sold anonymized DDoS pattern dataset to security researchers for $8K.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff;">Insider Threat Detection</h4>
+                        <p style="font-size: 0.9em; line-height: 1.7;">
+                            Employee resigned, joined competitor. Legal suspected data theft. ByteFreezer had 180 days of database query logs. AI query: "Show unusual file downloads by user_id in 30 days before resignation." Found 500GB customer database exported to personal Dropbox. Legal evidence in civil lawsuit. $5M damages awarded.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff;">Cloud Cost Optimization</h4>
+                        <p style="font-size: 0.9em; line-height: 1.7;">
+                            DevOps team paying $50K/month for Datadog logs. ByteFreezer deployed with 7-day hot retention in S3 Standard, 90-day cold in Glacier. Grafana dashboards query recent data. ClickHouse for deep dives. Historical analysis queries use DuckDB on Parquet. Total cost: $4K/month. 92% savings, same functionality.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: rgba(0,136,255,0.05); border: 2px solid #0088ff; border-radius: 8px;">
+                        <h4 style="color: #0088ff;">Supply Chain Attack</h4>
+                        <p style="font-size: 0.9em; line-height: 1.7;">
+                            Software vendor discovered backdoor in dependency. ByteFreezer retained 1 year of build pipeline logs. SQL query: "Find builds using compromised package version." Identified 47 customer deployments. Notified within 2 hours. Zero customer breaches. Compliance requirement: 5-year build audit trails now affordable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Marketplace Section -->
+    <section class="problem-solution" id="marketplace">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Data Marketplace: Monetize Your Operational Data</h2>
+                <p class="section-subtitle">
+                    Turn the data you're already collecting into revenue
+                </p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>1. Package & Anonymize</h3>
+                    <p>Collect operational data as usual (logs, flows, metrics, security events). Anonymize sensitive information. Package interesting datasets using ByteFreezer metadata layer. Examples: DDoS attack patterns, network traffic baselines, API usage statistics.</p>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>2. List in Marketplace</h3>
+                    <p>List curated datasets in ByteFreezer marketplace or sell directly to customers. Set your price. Automatic payment processing. Buyers can preview metadata and sample data before purchase. Standard Parquet format works with any tool.</p>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>3. Generate Revenue</h3>
+                    <p><strong>Real examples:</strong></p>
+                    <ul class="ps-list">
+                        <li>Security teams sell anonymized threat intelligence datasets</li>
+                        <li>Network operators sell traffic pattern datasets to researchers</li>
+                        <li>IoT companies sell sensor training data for ML models</li>
+                        <li>API providers sell usage benchmark data</li>
+                        <li>Passive revenue from data already being collected</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="features" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Common questions about ByteFreezer
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">Do you have access to my data?</h3>
+                    <p class="feature-description">
+                        No. ByteFreezer writes directly to your storage and never retains your data. We see metadata only (data volume, timestamps), never content. Zero-knowledge architecture means no ByteFreezer employee can access your data.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Can I use my own AI models?</h3>
+                    <p class="feature-description">
+                        Yes. BYOA (Bring Your Own Agent) means just provide your API key (OpenAI, Claude, Gemini) or local LLM endpoint. ByteFreezer handles all integration: metadata catalog, query optimization, context injection. No custom code needed.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">What retention period should I choose?</h3>
+                    <p class="feature-description">
+                        Security teams typically choose 30-90 days for incident response. Compliance requirements (SOC2, HIPAA) may need 1 year+. Start with 30 days and adjust based on actual forensic needs. Storage costs scale with retention.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">What if I want to leave ByteFreezer?</h3>
+                    <p class="feature-description">
+                        Your data is in standard Parquet format in your own storage. Just stop using our service and keep querying your data with DuckDB, ClickHouse, Athena, Spark, or any analytics tool. Zero lock-in.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Can I use ByteFreezer on-premises?</h3>
+                    <p class="feature-description">
+                        Yes. Enterprise plan includes Kubernetes deployment for complete on-premises or air-gapped environments. Free tier is always self-hosted. Use MinIO for on-prem S3-compatible storage.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">How is this different from S3 directly?</h3>
+                    <p class="feature-description">
+                        We handle ingestion, compression, transformation, metadata generation, and AI query integration. You could build this yourself, but ByteFreezer is faster and cheaper than engineering time.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Can I monetize my data?</h3>
+                    <p class="feature-description">
+                        Yes. Anonymize and package datasets, list in ByteFreezer marketplace or sell directly. Security teams sell threat intelligence, network operators sell traffic patterns, IoT companies sell sensor data.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">What storage providers are supported?</h3>
+                    <p class="feature-description">
+                        AWS S3, MinIO, Backblaze B2, Cloudflare R2, Wasabi, DigitalOcean Spaces. Any S3-compatible storage works. Azure Blob Storage and Google Cloud Storage are NOT supported (different APIs).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Technical Questions -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Technical Questions</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">What data ingestion rates does ByteFreezer support?</h3>
+                        <p class="feature-description">
+                            Single proxy instance handles 100K events/sec (8.6B events/day). Horizontal scaling supported: deploy multiple proxies with load balancer. Customers run 10+ proxies for 1B+ events/day. No sampling required at any scale.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What is the compression ratio?</h3>
+                        <p class="feature-description">
+                            Typical: 85-95% compression from raw logs to Parquet+ZSTD. Syslog: 90% reduction. JSON: 85% reduction. NetFlow: 95% reduction. Actual ratio depends on data redundancy and schema complexity.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">How fast are queries on historical data?</h3>
+                        <p class="feature-description">
+                            DuckDB: Scan 1TB Parquet in 30-60 seconds on laptop. ClickHouse: Sub-second queries on 100TB+ datasets. AWS Athena: 5-30 seconds for complex queries. Parquet columnar format enables blazing fast analytics.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What happens if proxy loses S3 connection?</h3>
+                        <p class="feature-description">
+                            Proxy buffers data to local disk (configurable limit: 10GB-1TB). Automatically resumes upload when connection restored. Zero data loss during network outages. Alerts sent if buffer exceeds threshold.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Can ByteFreezer handle schema changes?</h3>
+                        <p class="feature-description">
+                            Yes. Automatic schema evolution: new fields added without downtime. Schema versioning tracks changes over time. Backward compatible: old queries still work. Metadata catalog updated automatically.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What are the resource requirements?</h3>
+                        <p class="feature-description">
+                            Proxy: 2 CPU cores, 4GB RAM for 10K events/sec. Scales linearly. Storage: ~100GB/day for 100M events (after compression). Network: 100Mbps for 50K events/sec. Kubernetes: 3 nodes minimum for HA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Licensing Questions -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Pricing & Licensing</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">Is ByteFreezer really open source?</h3>
+                        <p class="feature-description">
+                            Yes. Core proxy and processing engine are MIT licensed on GitHub. Free forever for self-hosting. Paid plans add managed platform, support, AI integration layer, and enterprise features (SSO, RBAC, SLA).
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What's included in the Free tier?</h3>
+                        <p class="feature-description">
+                            1TB/month ingestion, self-hosted proxy, basic web UI, community support, 7-30 day retention. Perfect for small teams, testing, personal projects. No credit card required. Upgrade anytime.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">How is pricing calculated?</h3>
+                        <p class="feature-description">
+                            Based on data ingestion volume (TB/month). Storage costs paid directly to your S3 provider (no markup). Overage: $10/TB beyond plan limit. No per-seat, per-host, or per-query fees. Predictable pricing.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Do I pay for AI queries?</h3>
+                        <p class="feature-description">
+                            No ByteFreezer fees for queries. You pay your AI provider directly (OpenAI, Anthropic, etc.) for API usage. Typical cost: $0.01-$0.10 per query depending on complexity. Use local LLMs for free queries.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Are there volume discounts?</h3>
+                        <p class="feature-description">
+                            Yes. Enterprise plans: custom pricing for >100TB/month. Annual contracts: 20% discount. Non-profit and education: 50% discount. Startup program: Free for first year (up to 10TB/month).
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What if I exceed my plan limit?</h3>
+                        <p class="feature-description">
+                            Overage charged at $10/TB. No service interruption. Automatic notification at 80% and 100% of limit. Upgrade plan anytime to lower per-TB cost. Free tier: soft limit with warning (no hard cutoff).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Questions -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Integration & Compatibility</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">What data sources are supported?</h3>
+                        <p class="feature-description">
+                            Syslog (RFC3164, RFC5424), NetFlow v5/v9, IPFIX, sFlow, Kafka, HTTP webhooks, eBPF, StatsD, CloudWatch Logs, Google Cloud Logging, file tailing. Custom parsers via plugins.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Does ByteFreezer integrate with SIEM?</h3>
+                        <p class="feature-description">
+                            Yes. Forward events to Splunk, Elastic, QRadar, Sentinel via syslog. Or replace SIEM entirely for cold storage and use SIEM only for hot analytics. Hybrid approach saves 70-90% on SIEM costs.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Can I query data with Grafana?</h3>
+                        <p class="feature-description">
+                            Yes. Use ClickHouse or AWS Athena data source. Parquet files queried directly. Pre-built dashboards for common use cases. Real-time and historical data in same interface. No additional configuration needed.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Does ByteFreezer work with Jupyter notebooks?</h3>
+                        <p class="feature-description">
+                            Perfect for data science. DuckDB, Pandas, PyArrow read Parquet directly from S3. No export needed. ML model training on complete datasets. Example notebooks provided on GitHub.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Can I enrich data during ingestion?</h3>
+                        <p class="feature-description">
+                            Yes. GeoIP lookup, DNS resolution, threat intelligence enrichment, custom field extraction. Processing pipeline configurable via YAML. Lookups cached for performance. Enrichment added before storage.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What about alerting and notifications?</h3>
+                        <p class="feature-description">
+                            Built-in alerting via webhook, email, Slack, PagerDuty, OpsGenie. AI-powered anomaly detection (optional). Integration with existing monitoring tools. Custom alert rules via SQL or natural language.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security & Compliance Questions -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #0088ff; margin-bottom: 2rem;">Security & Compliance</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">Is ByteFreezer SOC2 compliant?</h3>
+                        <p class="feature-description">
+                            ByteFreezer platform is SOC2 Type II certified. Your data never touches our servers (BYOB architecture). Compliance responsibility: you control data, we provide tools. Perfect for SOC2, HIPAA, PCI-DSS audits.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">How is data encrypted?</h3>
+                        <p class="feature-description">
+                            In-transit: TLS 1.3 for all connections. At-rest: S3 server-side encryption (SSE-S3, SSE-KMS, or customer-managed keys). Proxy supports encryption before upload. No plaintext data stored anywhere.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Can I enforce data residency?</h3>
+                        <p class="feature-description">
+                            Yes. BYOB means you choose storage location. EU: Frankfurt, Ireland. US: specific regions. On-prem: complete control. GDPR compliant: data never leaves chosen jurisdiction. Multi-region supported.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What about log tampering and integrity?</h3>
+                        <p class="feature-description">
+                            S3 Object Lock provides immutable storage (WORM). S3 Versioning tracks all changes. Cryptographic checksums verify integrity. Audit trail of all access. Perfect for forensic evidence and legal compliance.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Does ByteFreezer support RBAC and SSO?</h3>
+                        <p class="feature-description">
+                            Enterprise plan includes full RBAC (role-based access control). SSO via SAML, OAuth, OIDC (Okta, Azure AD, Google). Multi-tenant isolation. Audit logs for all user actions. API keys with scoped permissions.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">How do I handle PII and sensitive data?</h3>
+                        <p class="feature-description">
+                            Built-in PII redaction: credit cards, SSNs, emails masked before storage. Regex patterns configurable. Field-level encryption for sensitive data. GDPR: automated deletion by retention policy or user request.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">What certifications does ByteFreezer have?</h3>
+                        <p class="feature-description">
+                            SOC2 Type II, ISO 27001 (in progress), GDPR compliant, CCPA compliant. HIPAA: BAA available for Enterprise customers. PCI-DSS: helps you meet Requirement 10 logging. FedRAMP: roadmap for 2025.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3 class="feature-title">Can I run security scans on ByteFreezer?</h3>
+                        <p class="feature-description">
+                            Self-hosted: full control, scan anytime. Cloud: coordinated penetration testing allowed (notify us first). Vulnerability disclosure program on GitHub. CVE response SLA: Critical 24h, High 48h, Medium 7d.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="use-cases" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join the Community</h2>
+                <p class="section-subtitle">
+                    Connect with ByteFreezer developers, contributors, and users
+                </p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Contribute to the project, report issues, follow development. Open source under MIT License.</p>
+                    <a href="https://github.com/n0needt0/bytefreezer" target="_blank" style="color: #0088ff;">View Repository →</a>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Discord</h3>
+                    <p>Join our community Discord for real-time discussions, support, and updates.</p>
+                    <a href="#" style="color: #0088ff;">Join Server →</a>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Discussions</h3>
+                    <p>Participate in GitHub Discussions for ideas, questions, and feature requests.</p>
+                    <a href="https://github.com/n0needt0/bytefreezer/discussions" target="_blank" style="color: #0088ff;">Join Discussions →</a>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Contact</h3>
+                    <p>Questions about enterprise deployment, custom solutions, or partnerships?</p>
+                    <a href="mailto:hello@bytefreezer.io" style="color: #0088ff;">hello@bytefreezer.io →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-snowflake"></i>
+                        <span>ByteFreezer</span>
+                    </div>
+                    <p>Open source security DVR. Record everything, store in S3-compatible storage, query with AI agents. BYOB + BYOA architecture. Your data. Your storage. Your AI.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/n0needt0/bytefreezer" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#the-problem">The Problem</a></li>
+                        <li><a href="#the-solution">Solution</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#storage-options">Storage Options</a></li>
+                        <li><a href="#ai-integration">AI Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#getting-started">Get Started</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#use-cases">Use Cases</a></li>
+                        <li><a href="#marketplace">Data Marketplace</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/n0needt0/bytefreezer" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/n0needt0/bytefreezer/discussions" target="_blank">Discussions</a></li>
+                        <li><a href="#" target="_blank">Discord</a></li>
+                        <li><a href="#" target="_blank">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 ByteFreezer. Open source under MIT License. Your data. Your storage. Your AI.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

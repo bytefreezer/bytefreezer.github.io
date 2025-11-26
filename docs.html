@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - ByteFreezer</title>
+    <meta name="description" content="Complete documentation for ByteFreezer - Open source data lake platform">
+    
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/docs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-snowflake"></i>
+                    <span>ByteFreezer</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="docs.html" class="nav-link active">Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="getting-started.html" class="nav-link">Get Started</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/n0needt0/bytefreezer" class="nav-link github-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-container">
+        <!-- Sidebar -->
+        <aside class="docs-sidebar">
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <h3>Getting Started</h3>
+                        <ul>
+                            <li><a href="#overview">Overview</a></li>
+                            <li><a href="#quick-start">Quick Start</a></li>
+                            <li><a href="#installation">Installation</a></li>
+                            <li><a href="#architecture">Architecture</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#receiver">ByteFreezer Receiver</a></li>
+                            <li><a href="#packer">ByteFreezer Packer</a></li>
+                            <li><a href="#proxy">ByteFreezer Proxy</a></li>
+                            <li><a href="#soc">ByteFreezer SOC</a></li>
+                            <li><a href="#control">ByteFreezer Control</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h3>Configuration</h3>
+                        <ul>
+                            <li><a href="#configuration">Configuration Guide</a></li>
+                            <li><a href="#environment-vars">Environment Variables</a></li>
+                            <li><a href="#multi-tenant">Multi-Tenant Setup</a></li>
+                            <li><a href="#security">Security Best Practices</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h3>Operations</h3>
+                        <ul>
+                            <li><a href="#monitoring">Monitoring</a></li>
+                            <li><a href="#scaling">Scaling</a></li>
+                            <li><a href="#troubleshooting">Troubleshooting</a></li>
+                            <li><a href="#api-reference">API Reference</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h3>Development</h3>
+                        <ul>
+                            <li><a href="#contributing">Contributing</a></li>
+                            <li><a href="#dev-setup">Development Setup</a></li>
+                            <li><a href="#testing">Testing</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="docs-main">
+            <div class="docs-header">
+                <h1>ByteFreezer Documentation</h1>
+                <p>Complete guide to building and operating your ByteFreezer data lake platform</p>
+            </div>
+
+            <section id="overview" class="doc-section">
+                <h2>Overview</h2>
+                <p>ByteFreezer is an open-source, scalable data lake platform designed to efficiently process NDJSON files into optimized Parquet format. It provides enterprise-grade features including multi-tenant security, comprehensive monitoring, and distributed processing capabilities.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Multi-Tenant Security</h4>
+                        <p>Complete tenant isolation with cross-contamination prevention</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Scalable Processing</h4>
+                        <p>Distributed architecture with worker pools and async processing</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Enterprise Monitoring</h4>
+                        <p>Comprehensive alerting and observability with OpenTelemetry</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-database"></i>
+                        <h4>Optimized Storage</h4>
+                        <p>ZSTD-compressed Parquet with Hive-style partitioning</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quick-start" class="doc-section">
+                <h2>Quick Start</h2>
+                <p>Get ByteFreezer running in minutes with Docker Compose:</p>
+                
+                <div class="code-block">
+                    <pre><code># Clone the repository
+git clone https://github.com/n0needt0/bytefreezer.git
+cd bytefreezer
+
+# Start all services with Docker Compose
+docker-compose up -d
+
+# Verify services are running
+curl http://localhost:8080/api/v1/health  # Control Service
+curl http://localhost:8081/health         # Receiver Service
+curl http://localhost:8082/health         # Packer Service</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <h4>What happens next?</h4>
+                        <p>ByteFreezer will start monitoring for NDJSON data in your configured S3 bucket and automatically convert it to optimized Parquet format with proper tenant isolation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="architecture" class="doc-section">
+                <h2>Architecture</h2>
+                <p>ByteFreezer follows a microservices architecture with clear separation of concerns:</p>
+                
+                <div class="architecture-diagram">
+                    <div class="service-flow">
+                        <div class="flow-node">
+                            <i class="fas fa-file-alt"></i>
+                            <span>NDJSON Data</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-node receiver">
+                            <i class="fas fa-inbox"></i>
+                            <span>Receiver</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-node packer">
+                            <i class="fas fa-box"></i>
+                            <span>Packer</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-node">
+                            <i class="fas fa-table"></i>
+                            <span>Parquet Lake</span>
+                        </div>
+                    </div>
+                    
+                    <div class="supporting-services">
+                        <div class="support-service">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Proxy</span>
+                            <small>UDP Collection</small>
+                        </div>
+                        <div class="support-service">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SOC</span>
+                            <small>Alerting Hub</small>
+                        </div>
+                        <div class="support-service">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Control</span>
+                            <small>Management Plane</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="receiver" class="doc-section">
+                <h2>ByteFreezer Receiver</h2>
+                <p>The HTTP API service that ingests NDJSON data with tenant routing and validation.</p>
+                
+                <h3>Features</h3>
+                <ul>
+                    <li>RESTful API for data ingestion</li>
+                    <li>Automatic tenant and dataset routing</li>
+                    <li>Input validation and sanitization</li>
+                    <li>Rate limiting and authentication</li>
+                    <li>Health monitoring and metrics</li>
+                </ul>
+                
+                <h3>API Endpoints</h3>
+                <div class="api-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Endpoint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>POST</code></td>
+                                <td><code>/api/v1/ingest/{tenantId}/{datasetId}</code></td>
+                                <td>Ingest NDJSON data for specific tenant/dataset</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET</code></td>
+                                <td><code>/health</code></td>
+                                <td>Health check endpoint</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET</code></td>
+                                <td><code>/config</code></td>
+                                <td>Service configuration</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Configuration Example</h3>
+                <div class="code-block">
+                    <pre><code>app:
+  name: "bytefreezer-receiver"
+  version: "1.0.0"
+
+server:
+  api_port: 8081
+  timeout_seconds: 30
+
+s3:
+  bucket_name: "data-intake"
+  region: "us-east-1"
+  
+auth:
+  enabled: true
+  api_keys:
+    - "your-secure-api-key"
+    
+rate_limit:
+  enabled: true
+  requests_per_minute: 1000
+  burst_size: 100</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id="packer" class="doc-section">
+                <h2>ByteFreezer Packer</h2>
+                <p>The core processing engine that transforms NDJSON files into optimized Parquet format with data lake partitioning.</p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Tenant Health Monitoring</strong> - Circuit breaker pattern with failure tracking</li>
+                    <li><strong>Multi-Tenant Security</strong> - Complete tenant/dataset isolation</li>
+                    <li><strong>Data Lake Optimization</strong> - Hive-style partitioning with ZSTD compression</li>
+                    <li><strong>Async Processing</strong> - Worker pool with retry mechanisms</li>
+                    <li><strong>Distributed Coordination</strong> - DynamoDB-based locking</li>
+                </ul>
+                
+                <h3>Data Flow</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Discovery</h4>
+                        <p>Scan S3 bucket for new NDJSON files in tenant/dataset structure</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Processing</h4>
+                        <p>Download, decompress, and merge NDJSON files with optional JSON flattening</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Conversion</h4>
+                        <p>Transform to Parquet format with ZSTD compression and schema optimization</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Upload</h4>
+                        <p>Store in tenant-specific buckets with Hive-style partitioning</p>
+                    </div>
+                </div>
+                
+                <h3>Configuration</h3>
+                <div class="code-block">
+                    <pre><code>housekeeping:
+  enabled: true
+  interval_seconds: 300
+
+upload_pool:
+  worker_count: 5
+  cleanup_source_files: true
+
+tenant_failures:
+  table_name: "tenant-failures"
+  threshold: 3
+
+s3_source:
+  bucket_name: "intake"
+  region: "us-east-1"</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id="configuration" class="doc-section">
+                <h2>Configuration Guide</h2>
+                <p>ByteFreezer services are configured via YAML files with environment variable overrides.</p>
+                
+                <h3>Configuration Structure</h3>
+                <div class="config-sections">
+                    <div class="config-section">
+                        <h4>Application Settings</h4>
+                        <div class="code-block">
+                            <pre><code>app:
+  name: "service-name"
+  version: "1.0.0"
+
+logging:
+  level: "info"
+  encoding: "json"
+
+server:
+  api_port: 8080</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="config-section">
+                        <h4>Cloud Services</h4>
+                        <div class="code-block">
+                            <pre><code>s3:
+  bucket_name: "your-bucket"
+  region: "us-east-1"
+  access_key: "${AWS_ACCESS_KEY}"
+  secret_key: "${AWS_SECRET_KEY}"
+
+dynamodb:
+  table_name: "locks"
+  region: "us-east-1"
+
+otel:
+  enabled: true
+  endpoint: "http://otel:4317"</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Environment Variables</h3>
+                <p>All configuration can be overridden with environment variables using the <code>BYTEFREEZER_</code> prefix:</p>
+                
+                <div class="code-block">
+                    <pre><code># Service configuration
+export BYTEFREEZER_LOGGING_LEVEL=debug
+export BYTEFREEZER_SERVER_API_PORT=8080
+
+# S3 configuration
+export BYTEFREEZER_S3_BUCKET_NAME=my-bucket
+export BYTEFREEZER_S3_REGION=us-west-2
+
+# Processing configuration
+export BYTEFREEZER_UPLOAD_POOL_WORKER_COUNT=10</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id="monitoring" class="doc-section">
+                <h2>Monitoring & Observability</h2>
+                <p>ByteFreezer provides comprehensive monitoring through OpenTelemetry, health checks, and structured logging.</p>
+                
+                <h3>Health Endpoints</h3>
+                <div class="monitoring-grid">
+                    <div class="monitor-item">
+                        <h4>Service Health</h4>
+                        <code>GET /health</code>
+                        <p>Basic service health and uptime</p>
+                    </div>
+                    <div class="monitor-item">
+                        <h4>Ecosystem Health</h4>
+                        <code>GET /api/v1/ecosystem/health</code>
+                        <p>Overall system health status</p>
+                    </div>
+                    <div class="monitor-item">
+                        <h4>Metrics</h4>
+                        <code>GET /metrics</code>
+                        <p>Prometheus-compatible metrics</p>
+                    </div>
+                    <div class="monitor-item">
+                        <h4>Statistics</h4>
+                        <code>GET /api/v1/stats</code>
+                        <p>Detailed service statistics</p>
+                    </div>
+                </div>
+                
+                <h3>Key Metrics</h3>
+                <ul>
+                    <li><strong>Processing Metrics</strong>: Files processed, bytes converted, processing time</li>
+                    <li><strong>Tenant Metrics</strong>: Active tenants, failure counts, health status</li>
+                    <li><strong>System Metrics</strong>: Memory usage, disk space, network I/O</li>
+                    <li><strong>Error Metrics</strong>: Failure rates, retry counts, alert frequencies</li>
+                </ul>
+                
+                <h3>Alerting</h3>
+                <p>Configure SOC integration for comprehensive alerting:</p>
+                
+                <div class="code-block">
+                    <pre><code>soc:
+  enabled: true
+  endpoint: "https://your-soc-endpoint/webhook"
+  alert_levels:
+    - "CRITICAL"
+    - "HIGH" 
+    - "MEDIUM"
+    - "INFO"</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id="troubleshooting" class="doc-section">
+                <h2>Troubleshooting</h2>
+                <p>Common issues and solutions for ByteFreezer deployments.</p>
+                
+                <div class="troubleshooting-grid">
+                    <div class="trouble-item">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Service Won't Start</h4>
+                        <div class="trouble-solution">
+                            <p><strong>Symptoms:</strong> Service fails to start, exits immediately</p>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Check configuration file syntax: <code>./service --validate-config</code></li>
+                                <li>Verify AWS credentials and permissions</li>
+                                <li>Check port availability</li>
+                                <li>Review logs for specific error messages</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="trouble-item">
+                        <h4><i class="fas fa-database"></i> Processing Failures</h4>
+                        <div class="trouble-solution">
+                            <p><strong>Symptoms:</strong> Files not being processed, tenant errors</p>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Check DynamoDB locks: <code>aws dynamodb scan --table-name tenant-locks</code></li>
+                                <li>Verify S3 bucket permissions</li>
+                                <li>Check tenant failure status in database</li>
+                                <li>Review SOC alerts for error details</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="trouble-item">
+                        <h4><i class="fas fa-memory"></i> High Memory Usage</h4>
+                        <div class="trouble-solution">
+                            <p><strong>Symptoms:</strong> OOM errors, slow processing</p>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Reduce worker pool size</li>
+                                <li>Enable cache cleanup</li>
+                                <li>Check for large file processing</li>
+                                <li>Increase memory limits in deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="trouble-item">
+                        <h4><i class="fas fa-network-wired"></i> Network Issues</h4>
+                        <div class="trouble-solution">
+                            <p><strong>Symptoms:</strong> Connection timeouts, upload failures</p>
+                            <p><strong>Solutions:</strong></p>
+                            <ul>
+                                <li>Check security groups and firewall rules</li>
+                                <li>Verify VPC endpoints configuration</li>
+                                <li>Test connectivity to AWS services</li>
+                                <li>Review network timeout settings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Log Analysis</h3>
+                <p>Key log patterns to monitor:</p>
+                
+                <div class="code-block">
+                    <pre><code># Successful processing
+grep "Successfully completed processing pipeline" logs/
+
+# Failure tracking
+grep "Incremented failure count" logs/
+grep "Successfully disabled tenant" logs/
+
+# Performance metrics
+grep "successfully uploaded.*bytes.*in" logs/
+
+# Health issues
+grep -E "(ERROR|WARN|FATAL)" logs/ | tail -20</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id="contributing" class="doc-section">
+                <h2>Contributing</h2>
+                <p>We welcome contributions to ByteFreezer! Here's how to get started.</p>
+                
+                <h3>Development Setup</h3>
+                <div class="code-block">
+                    <pre><code># Fork and clone the repository
+git clone https://github.com/YOUR-USERNAME/bytefreezer.git
+cd bytefreezer
+
+# Set up development environment
+./scripts/dev.sh setup
+
+# Start services in development mode
+./scripts/dev.sh start
+
+# Run tests
+make test</code></pre>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                
+                <h3>Contribution Guidelines</h3>
+                <div class="guidelines-grid">
+                    <div class="guideline-item">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>Pull Requests</h4>
+                        <p>Create feature branches, write tests, update documentation</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-bug"></i>
+                        <h4>Bug Reports</h4>
+                        <p>Use issue templates, include reproduction steps and logs</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>Feature Requests</h4>
+                        <p>Discuss in GitHub Discussions before implementation</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-book"></i>
+                        <h4>Documentation</h4>
+                        <p>Update docs for new features, improve examples</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-snowflake"></i>
+                        <span>ByteFreezer</span>
+                    </div>
+                    <p>Open-source data lake platform for scalable NDJSON to Parquet processing</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#quick-start">Quick Start</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                        <li><a href="#api-reference">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/n0needt0/bytefreezer" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/n0needt0/bytefreezer/discussions" target="_blank">Discussions</a></li>
+                        <li><a href="#contributing">Contributing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/docs.js"></script>
+</body>
+</html>

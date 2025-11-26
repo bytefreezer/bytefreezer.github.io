@@ -1,0 +1,40 @@
+/* ByteFreezer Custom Styles */
+
+/* Primary color */
+:root {
+  --md-primary-fg-color: #0088ff;
+  --md-primary-fg-color--light: #339dff;
+  --md-primary-fg-color--dark: #0066cc;
+  --md-accent-fg-color: #0088ff;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color--light: #8b949e;
+}
+
+/* Hero section full width */
+.md-main__inner {
+  max-width: none;
+}
+
+/* Landing page no sidebar */
+.md-sidebar--primary {
+  display: none;
+}
+
+/* Code blocks */
+.highlight code {
+  font-size: 0.85em;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  font-size: 0.85em;
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  font-size: 0.9em;
+}
