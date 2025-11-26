@@ -68,12 +68,12 @@ hide:
 }
 
 .btn-primary {
-  background: #0088ff;
-  color: #fff;
+  background: #0066cc;
+  color: #fff !important;
 }
 
 .btn-primary:hover {
-  background: #0066cc;
+  background: #004499;
   transform: translateY(-2px);
 }
 
