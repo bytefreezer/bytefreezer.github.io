@@ -4,6 +4,8 @@ hide:
   - toc
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
 /* Hero Section */
 .md-main__inner { margin: 0; padding: 0; }
@@ -302,7 +304,7 @@ hide:
 
 <div class="hero">
   <div class="hero-badge">
-    :material-video: Open Source Security DVR + AI Forensics
+    <i class="fas fa-video"></i> Open Source Security DVR + AI Forensics
   </div>
 
   <h1>Your Data. Your Storage. Your AI.</h1>
@@ -313,30 +315,30 @@ hide:
 
   <div class="hero-buttons">
     <a href="getting-started/" class="btn btn-primary">
-      :material-rocket-launch: Get Started
+      <i class="fas fa-rocket"></i> Get Started
     </a>
     <a href="https://github.com/bytefreezer/bytefreezer" class="btn btn-secondary" target="_blank">
-      :fontawesome-brands-github: GitHub
+      <i class="fab fa-github"></i> GitHub
     </a>
   </div>
 
   <div class="value-props">
     <div class="value-prop">
-      <div class="value-prop-icon">:material-database:</div>
+      <div class="value-prop-icon"><i class="fas fa-database"></i></div>
       <div>
         <h3>BYOB: Bring Your Own Bucket</h3>
         <p>S3-compatible storage - you control the data</p>
       </div>
     </div>
     <div class="value-prop">
-      <div class="value-prop-icon">:material-robot:</div>
+      <div class="value-prop-icon"><i class="fas fa-robot"></i></div>
       <div>
         <h3>BYOA: Bring Your Own Agent</h3>
         <p>OpenAI, Claude, Gemini, or local LLMs</p>
       </div>
     </div>
     <div class="value-prop">
-      <div class="value-prop-icon">:material-calendar:</div>
+      <div class="value-prop-icon"><i class="fas fa-calendar"></i></div>
       <div>
         <h3>Flexible Retention</h3>
         <p>7 days to perpetual - choose what you need</p>
@@ -368,17 +370,17 @@ hide:
 
   <div class="cards-grid">
     <div class="card">
-      <div class="card-icon">:material-alert-circle:</div>
+      <div class="card-icon"><i class="fas fa-exclamation-circle"></i></div>
       <h3>Traditional SIEMs Are Expensive</h3>
       <p>Enterprise SIEM solutions cost $1M+ annually. Splunk charges $150/GB, Datadog has complex per-host pricing. These costs make comprehensive logging prohibitive.</p>
     </div>
     <div class="card">
-      <div class="card-icon">:material-lock:</div>
+      <div class="card-icon"><i class="fas fa-lock"></i></div>
       <h3>Vendor Controls Your Data</h3>
       <p>Your security data lives in vendor infrastructure. You pay for retention, pay for queries, pay for exports. When you want to leave, migration is painful and expensive.</p>
     </div>
     <div class="card">
-      <div class="card-icon">:material-calendar-remove:</div>
+      <div class="card-icon"><i class="fas fa-calendar-times"></i></div>
       <h3>Limited Retention Windows</h3>
       <p>Cost-prohibitive retention means you can only afford 7-30 days. When sophisticated attacks are discovered months later, the evidence is already gone.</p>
     </div>
@@ -393,7 +395,7 @@ hide:
 
   <div class="cards-grid">
     <div class="card">
-      <div class="card-icon">:material-database:</div>
+      <div class="card-icon"><i class="fas fa-database"></i></div>
       <h3>BYOB: Bring Your Own Bucket</h3>
       <ul>
         <li>Data written directly to <strong>your S3-compatible storage</strong></li>
@@ -403,7 +405,7 @@ hide:
       </ul>
     </div>
     <div class="card">
-      <div class="card-icon">:material-robot:</div>
+      <div class="card-icon"><i class="fas fa-robot"></i></div>
       <h3>BYOA: Bring Your Own Agent</h3>
       <ul>
         <li><strong>Just add your API key:</strong> OpenAI, Claude, Gemini, local LLMs</li>
@@ -413,7 +415,7 @@ hide:
       </ul>
     </div>
     <div class="card">
-      <div class="card-icon">:material-calendar-check:</div>
+      <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
       <h3>Flexible Everything</h3>
       <ul>
         <li><strong>Retention:</strong> 7, 30, 90, 365 days, or perpetual</li>
@@ -484,7 +486,7 @@ hide:
     <h2>Ready to get started?</h2>
     <p>Deploy ByteFreezer in minutes and start recording your security data.</p>
     <a href="getting-started/" class="btn btn-primary" style="background: #fff; color: #0088ff;">
-      :material-rocket-launch: Get Started Now
+      <i class="fas fa-rocket"></i> Get Started Now
     </a>
   </div>
 </div>

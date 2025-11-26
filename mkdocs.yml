@@ -36,8 +36,8 @@ theme:
     - content.tabs.link
   icon:
     repo: fontawesome/brands/github
-    logo: material/shield-lock
-  favicon: assets/images/favicon.svg
+  logo: assets/images/tab-icon.svg
+  favicon: assets/images/tab-icon.svg
 
 plugins:
   - search
