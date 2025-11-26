@@ -315,7 +315,7 @@ hide:
     <a href="getting-started/" class="btn btn-primary">
       :material-rocket-launch: Get Started
     </a>
-    <a href="https://github.com/n0needt0/bytefreezer" class="btn btn-secondary" target="_blank">
+    <a href="https://github.com/bytefreezer/bytefreezer" class="btn btn-secondary" target="_blank">
       :fontawesome-brands-github: GitHub
     </a>
   </div>
@@ -490,6 +490,6 @@ hide:
 </div>
 
 <div class="landing-footer">
-  <p>&copy; 2024 ByteFreezer. Open source under <a href="https://github.com/n0needt0/bytefreezer/blob/main/LICENSE">MIT License</a>.</p>
+  <p>&copy; 2024 ByteFreezer. Open source under <a href="https://github.com/bytefreezer/bytefreezer/blob/main/LICENSE">MIT License</a>.</p>
   <p>Your data. Your storage. Your AI.</p>
 </div>
