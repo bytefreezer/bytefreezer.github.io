@@ -4,7 +4,7 @@ site_description: Open source security DVR. Record everything, store in your S3/
 site_author: ByteFreezer Team
 
 repo_name: bytefreezer/bytefreezer
-repo_url: https://github.com/n0needt0/bytefreezer
+repo_url: https://github.com/bytefreezer/bytefreezer
 edit_uri: ""
 
 theme:
@@ -65,7 +65,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/n0needt0/bytefreezer
+      link: https://github.com/bytefreezer/bytefreezer
     - icon: fontawesome/brands/discord
       link: https://discord.gg/bytefreezer
   generator: false
