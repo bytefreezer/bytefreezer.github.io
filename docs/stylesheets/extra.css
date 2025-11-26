@@ -19,10 +19,6 @@
   max-width: none;
 }
 
-/* Landing page no sidebar */
-.md-sidebar--primary {
-  display: none;
-}
 
 /* Code blocks */
 .highlight code {
