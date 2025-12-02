@@ -1,3 +1,6 @@
+// Licensed under Elastic License 2.0
+// See LICENSE.txt for details
+
 // Documentation-specific JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
