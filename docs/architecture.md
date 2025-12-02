@@ -1,12 +1,12 @@
 # Architecture
 
-ByteFreezer is designed as a modular, scalable data pipeline for security data collection, storage, and analysis.
+bytefreezer is designed as a modular, scalable data pipeline for security data collection, storage, and analysis.
 
 ## Overview
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│ Data Sources│ ──> │  ByteFreezer │ ──> │ Your Storage│
+│ Data Sources│ ──> │  bytefreezer │ ──> │ Your Storage│
 │             │     │    Proxy     │     │   (S3)      │
 └─────────────┘     └──────────────┘     └─────────────┘
                                                 │
@@ -21,7 +21,7 @@ ByteFreezer is designed as a modular, scalable data pipeline for security data c
 
 ## Components
 
-### 1. ByteFreezer Proxy
+### 1. bytefreezer Proxy
 
 The proxy is the core data collection component.
 
@@ -105,7 +105,7 @@ Data arrives via configured sources:
 
 ```
 Syslog (UDP/TCP 514)  ──┐
-NetFlow (UDP 2055)    ──┼──> ByteFreezer Proxy
+NetFlow (UDP 2055)    ──┼──> bytefreezer Proxy
 Kafka (TCP 9092)      ──┤
 HTTP Webhooks         ──┘
 ```
@@ -226,7 +226,7 @@ Cold (30+ days)   → S3 Glacier      → $0.004/GB
 ### Access Control
 
 - IAM policies for S3 bucket access
-- No ByteFreezer access to your data (BYOB)
+- No bytefreezer access to your data (BYOB)
 - Audit logging for all operations
 
 ### Compliance

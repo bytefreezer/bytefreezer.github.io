@@ -12,7 +12,7 @@ hide:
 .md-content__inner { margin: 0; padding: 0; max-width: none; }
 
 .hero {
-  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
   padding: 6rem 2rem;
   text-align: center;
 }
@@ -21,12 +21,12 @@ hide:
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(0, 136, 255, 0.1);
-  border: 1px solid rgba(0, 136, 255, 0.3);
+  background: rgba(0, 102, 204, 0.1);
+  border: 1px solid rgba(0, 102, 204, 0.3);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-size: 0.9rem;
-  color: #0088ff;
+  color: #0066cc;
   margin-bottom: 1.5rem;
 }
 
@@ -34,7 +34,7 @@ hide:
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #fff 0%, #0088ff 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -42,7 +42,7 @@ hide:
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #8b949e;
+  color: #495057;
   max-width: 800px;
   margin: 0 auto 2rem;
   line-height: 1.7;
@@ -79,13 +79,13 @@ hide:
 
 .btn-secondary {
   background: transparent;
-  border: 1px solid #30363d;
-  color: #c9d1d9;
+  border: 1px solid #adb5bd;
+  color: #495057;
 }
 
 .btn-secondary:hover {
-  border-color: #0088ff;
-  color: #0088ff;
+  border-color: #0066cc;
+  color: #0066cc;
 }
 
 /* Value Props */
@@ -104,26 +104,26 @@ hide:
   gap: 1rem;
   text-align: left;
   padding: 1.5rem;
-  background: rgba(22, 27, 34, 0.8);
-  border: 1px solid #30363d;
+  background: #fff;
+  border: 1px solid #dee2e6;
   border-radius: 0.5rem;
 }
 
 .value-prop-icon {
   font-size: 1.5rem;
-  color: #0088ff;
+  color: #0066cc;
 }
 
 .value-prop h3 {
   margin: 0 0 0.25rem;
   font-size: 1rem;
-  color: #c9d1d9;
+  color: #212529;
 }
 
 .value-prop p {
   margin: 0;
   font-size: 0.875rem;
-  color: #8b949e;
+  color: #6c757d;
 }
 
 /* Stats */
@@ -142,12 +142,12 @@ hide:
 .stat-number {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0088ff;
+  color: #0066cc;
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: #8b949e;
+  color: #6c757d;
 }
 
 /* Sections */
@@ -156,7 +156,7 @@ hide:
 }
 
 .section-dark {
-  background: #161b22;
+  background: #e9ecef;
 }
 
 .section-header {
@@ -167,12 +167,12 @@ hide:
 .section-header h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #c9d1d9;
+  color: #212529;
 }
 
 .section-header p {
   font-size: 1.125rem;
-  color: #8b949e;
+  color: #6c757d;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -187,36 +187,36 @@ hide:
 }
 
 .card {
-  background: #0d1117;
-  border: 1px solid #30363d;
+  background: #fff;
+  border: 1px solid #dee2e6;
   border-radius: 0.75rem;
   padding: 2rem;
   transition: border-color 0.2s;
 }
 
 .card:hover {
-  border-color: #0088ff;
+  border-color: #0066cc;
 }
 
 .card-icon {
   font-size: 2.5rem;
-  color: #0088ff;
+  color: #0066cc;
   margin-bottom: 1rem;
 }
 
 .card h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: #c9d1d9;
+  color: #212529;
 }
 
 .card p {
-  color: #8b949e;
+  color: #6c757d;
   line-height: 1.6;
 }
 
 .card ul {
-  color: #8b949e;
+  color: #495057;
   padding-left: 1.25rem;
   line-height: 1.8;
 }
@@ -231,8 +231,8 @@ hide:
 }
 
 .pricing-card {
-  background: #0d1117;
-  border: 1px solid #30363d;
+  background: #fff;
+  border: 1px solid #dee2e6;
   border-radius: 0.75rem;
   padding: 2rem;
   text-align: center;
@@ -241,26 +241,26 @@ hide:
 .pricing-card h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #c9d1d9;
+  color: #212529;
 }
 
 .pricing-card .price {
   font-size: 2rem;
   font-weight: 700;
-  color: #0088ff;
+  color: #0066cc;
   margin-bottom: 1.5rem;
 }
 
 .pricing-card ul {
   text-align: left;
-  color: #8b949e;
+  color: #495057;
   padding-left: 1.25rem;
   line-height: 1.8;
 }
 
 /* CTA */
 .cta {
-  background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
   padding: 4rem 2rem;
   text-align: center;
   border-radius: 1rem;
@@ -274,24 +274,24 @@ hide:
 }
 
 .cta p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
 }
 
 /* Footer */
 .landing-footer {
-  background: #0d1117;
+  background: #f8f9fa;
   padding: 3rem 2rem;
   text-align: center;
-  border-top: 1px solid #30363d;
+  border-top: 1px solid #dee2e6;
 }
 
 .landing-footer p {
-  color: #8b949e;
+  color: #6c757d;
 }
 
 .landing-footer a {
-  color: #0088ff;
+  color: #0066cc;
 }
 
 /* Responsive */
@@ -409,7 +409,7 @@ hide:
       <h3>BYOA: Bring Your Own Agent</h3>
       <ul>
         <li><strong>Just add your API key:</strong> OpenAI, Claude, Gemini, local LLMs</li>
-        <li>ByteFreezer provides integration layer (metadata, optimization, context)</li>
+        <li>bytefreezer provides integration layer (metadata, optimization, context)</li>
         <li>Ask questions in natural language, get answers from complete history</li>
         <li>Switch AI providers anytime - no vendor lock-in</li>
       </ul>
@@ -421,7 +421,7 @@ hide:
         <li><strong>Retention:</strong> 7, 30, 90, 365 days, or perpetual</li>
         <li><strong>Storage:</strong> S3 Standard ($4/TB) or Glacier ($0.40/TB)</li>
         <li><strong>Format:</strong> Standard Parquet - query with any tool</li>
-        <li>Leave ByteFreezer anytime - data stays accessible forever</li>
+        <li>Leave bytefreezer anytime - data stays accessible forever</li>
       </ul>
     </div>
   </div>
@@ -484,7 +484,7 @@ hide:
 <div class="section">
   <div class="cta">
     <h2>Ready to get started?</h2>
-    <p>Deploy ByteFreezer in minutes and start recording your security data.</p>
+    <p>Deploy bytefreezer in minutes and start recording your security data.</p>
     <a href="getting-started/" class="btn btn-primary" style="background: #fff; color: #0088ff;">
       <i class="fas fa-rocket"></i> Get Started Now
     </a>
@@ -492,6 +492,6 @@ hide:
 </div>
 
 <div class="landing-footer">
-  <p>&copy; 2024 ByteFreezer. Open source under <a href="https://github.com/bytefreezer/bytefreezer/blob/main/LICENSE">MIT License</a>.</p>
+  <p>&copy; 2025 bytefreezer. Open source under <a href="https://github.com/bytefreezer/bytefreezer/blob/main/LICENSE">MIT License</a>.</p>
   <p>Your data. Your storage. Your AI.</p>
 </div>

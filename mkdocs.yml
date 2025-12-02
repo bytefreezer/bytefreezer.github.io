@@ -1,7 +1,7 @@
-site_name: ByteFreezer
+site_name: bytefreezer
 site_url: https://bytefreezer.github.io
 site_description: Open source security DVR. Record everything, store in your S3/MinIO bucket, query with AI agents. BYOB + BYOA. Flexible retention 7-365+ days.
-site_author: ByteFreezer Team
+site_author: bytefreezer team
 
 repo_name: bytefreezer/bytefreezer
 repo_url: https://github.com/bytefreezer/bytefreezer
@@ -77,7 +77,7 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
-copyright: Copyright &copy; 2024 ByteFreezer. Open source under MIT License.
+copyright: Copyright &copy; 2025 bytefreezer. Open source under MIT License.
 
 nav:
   - Home: index.md

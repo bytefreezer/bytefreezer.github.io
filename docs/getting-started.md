@@ -1,6 +1,6 @@
 # Getting Started
 
-Get ByteFreezer up and running in minutes. Choose your deployment model based on your requirements.
+Get bytefreezer up and running in minutes. Choose your deployment model based on your requirements.
 
 ## Deployment Options
 
@@ -59,7 +59,7 @@ docker run -d \
 ## Quick Start with Kubernetes
 
 ```bash
-# Add ByteFreezer Helm repository
+# Add bytefreezer Helm repository
 helm repo add bytefreezer https://charts.bytefreezer.io
 helm repo update
 
@@ -81,12 +81,12 @@ helm install bytefreezer bytefreezer/proxy \
 1. Create an S3 bucket in your preferred region
 2. Create an IAM user with S3 access
 3. Generate access keys
-4. Configure ByteFreezer with endpoint: `s3.amazonaws.com`
+4. Configure bytefreezer with endpoint: `s3.amazonaws.com`
 
 ### MinIO (On-Premises)
 
 1. Deploy MinIO cluster
-2. Create a bucket for ByteFreezer
+2. Create a bucket for bytefreezer
 3. Configure with `path_style: true`
 4. Use your MinIO endpoint URL
 
@@ -111,7 +111,7 @@ helm install bytefreezer bytefreezer/proxy \
 docker logs bytefreezer-proxy
 
 # Send a test syslog message
-echo "<14>Test message from ByteFreezer" | nc -u localhost 514
+echo "<14>Test message from bytefreezer" | nc -u localhost 514
 
 # Check S3 bucket for Parquet files (wait ~60 seconds)
 aws s3 ls s3://your-bucket-name/
@@ -122,5 +122,5 @@ aws s3 ls s3://your-bucket-name/
 ## Next Steps
 
 - [Configuration Reference](configuration.md) - Full configuration options
-- [Architecture](architecture.md) - Understand how ByteFreezer works
+- [Architecture](architecture.md) - Understand how bytefreezer works
 - [GitHub Repository](https://github.com/n0needt0/bytefreezer) - Source code and examples

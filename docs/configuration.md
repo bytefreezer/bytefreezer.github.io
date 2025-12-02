@@ -1,13 +1,13 @@
 # Configuration Reference
 
-Complete configuration options for ByteFreezer proxy and components.
+Complete configuration options for bytefreezer proxy and components.
 
 ## Configuration File
 
-ByteFreezer uses YAML configuration. Default location: `/etc/bytefreezer/config.yaml`
+bytefreezer uses YAML configuration. Default location: `/etc/bytefreezer/config.yaml`
 
 ```yaml
-# ByteFreezer Proxy Configuration
+# bytefreezer Proxy Configuration
 server:
   listen: "0.0.0.0:514"
   protocols:
